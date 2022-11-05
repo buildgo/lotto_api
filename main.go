@@ -32,6 +32,12 @@ func main() {
 		c.JSON(http.StatusOK, gin.H{"data": luckyNumbers})
 	})
 
+	r.POST("/lotto", func(c *gin.Context) {
+		sendSlack := c.DefaultQuery("sendSlack", "false")
+		luckyNumbers := sendLottoNumber(util.ParseBool(sendSlack))
+		c.JSON(http.StatusOK, gin.H{"data": luckyNumbers})
+	})
+
 	r.POST("/slack/webhook/:name", func(c *gin.Context) {
 		webhookName := c.Param("name")
 		// TODO: register webhook with name
