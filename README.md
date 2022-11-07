@@ -1,6 +1,7 @@
 # Lotto API
 Lotto 번호를 응답하는 API 요청을 받으면 생성된 Lotto 번호를 담아서 환경변수에 저장된 SLACK WEBHOOK 으로 API 요청을 한다.
 
+- `GET /lotto`
 
 ## Learned
 

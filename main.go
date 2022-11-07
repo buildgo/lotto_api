@@ -27,8 +27,7 @@ func main() {
 	})
 
 	r.GET("/lotto", func(c *gin.Context) {
-		sendSlack := c.DefaultQuery("sendSlack", "false")
-		luckyNumbers := sendLottoNumber(util.ParseBool(sendSlack))
+		luckyNumbers := sendLottoNumber(false)
 		c.JSON(http.StatusOK, gin.H{"data": luckyNumbers})
 	})
 
